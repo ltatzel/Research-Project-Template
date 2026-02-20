@@ -1,0 +1,21 @@
+# Conda environment for the project
+#
+# To create the environment from scratch, run 
+# ```conda env create -f project_template_env.yml``` 
+#
+# To update an existing environment, run 
+# ```conda env update -f project_template_env.yml```
+# Adding `--prune` removes packages not listed in this YAML file.
+
+name: project_template_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - matplotlib
+  - jupyter
+  - ipykernel
+  - scipy
+  - pytest
