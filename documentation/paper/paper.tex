@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+\begin{document}
+\title{A Sample Paper}
+\author{Your Name}
+\date{\today}
+\maketitle
+
+\section{Introduction}
+\blindtext
+
+\section{Results}
+\blindtext[2]
+
+% This is how you can include a figure from our `results` directory.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{../results/01_first_experiment/plot.pdf}
+  \caption{Results from our first experiment.}
+\end{figure}
+
+\section{Conclusion}
+\blindtext
+
+\end{document}
