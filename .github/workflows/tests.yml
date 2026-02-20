@@ -1,0 +1,40 @@
+name: Run pytest (conda)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ------------------------------
+      # Set up environment
+      # ------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: project_template_env
+          environment-file: project_template_env.yml
+          auto-activate-base: false
+          use-mamba: true
+
+      # ------------------------------
+      # Install own library
+      # ------------------------------
+      - name: Install our_library package
+        shell: bash -l {0}
+        run: |
+          cd our_library
+          pip install -e .
+
+      # ------------------------------
+      # Run tests
+      # ------------------------------
+      - name: Run pytest
+        shell: bash -l {0}
+        run: pytest our_library/tests
