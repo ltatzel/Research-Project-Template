@@ -131,4 +131,5 @@ Some tasks to get you started:
    template demonstrates how figures from the `results` folder can be included
    in the paper.
 8. **Adapt and Extend:** Adapt and extend the template as needed for your own
-   research project. 
+   research project. For instance, you might want to rename the virtual
+   environment and the `our_library` folder.
