@@ -9,6 +9,12 @@ and maintain your code, or share it with collaborators. The template is
 intentionally lightweight so that it can easily be adapted to different
 research workflows.
 
+**Credits & License:** This template was created by Lukas Tatzel and is
+available at  
+https://github.com/ltatzel/Research-Project-Template. If you find it useful,
+feel free to reference the original repository. This project is licensed under
+the MIT License, see the `LICENSE` file for details.
+
 ---
 
 ## 1. Good Practices in Software Engineering
@@ -18,34 +24,33 @@ organized and reliable. The list is intentionally minimal and can easily be
 extended (for example with automated formatting).
 
 - **Version Control:** Version control allows us to track the history of a
-  project. Every change to the codebase is recorded and can be inspected or
-  reverted later. This template uses *git* for version control. It allows you
-  to track the evolution of your code, revert to earlier versions and
-  collaborate with others.
+    project. Every change to the codebase is recorded and can be inspected or
+    reverted later. This template uses *git* for version control. It allows you
+    to track the evolution of your code, revert to earlier versions and
+    collaborate with others.
 
-- **Testing:** Automated tests help ensure that your code behaves as
-  expected. For example, if you know the expected output of a function for
-  certain inputs, you can write a test that verifies this behavior
-  automatically. This template uses the *`pytest`* package for running tests.
+- **Testing:** Automated tests help ensure that your code behaves as expected.
+    For example, if you know the expected output of a function for certain
+    inputs, you can write a test that verifies this behavior automatically.
+    This template uses the *`pytest`* package for running tests.
 
 - **Continuous Integration:** Whenever code changes are made, it is useful to
-  automatically check whether everything still works. This process is called
-  *Continuous Integration (CI)*. This template includes a GitHub workflow in
-  `.github/workflows` that automatically creates a fresh environment, installs
-  the project dependencies and runs the tests using `pytest`. If something
-  fails, the workflow reports the error. CI also ensures that all required
-  dependencies are explicitly listed, which is important for reproducibility.
+    automatically check whether everything still works. This process is called
+    *Continuous Integration (CI)*. This template includes a GitHub workflow in
+    `.github/workflows` that automatically creates a fresh environment,
+    installs the project dependencies and runs the tests using `pytest`. If
+    something fails, the workflow reports the error. CI also ensures that all
+    required dependencies are explicitly listed, which is important for
+    reproducibility.
 
 - **Clean Code:** Of course, writing clean and readable code is always
-  beneficial. Some useful principles include:
-   - Use meaningful names for variables and functions
-   - Avoid duplicating code
-   - Prefer simple solutions over complex ones
-   - Let each function perform one clearly defined task
-   - Write short docstrings describing what your code does
+    beneficial. Some useful principles include: - Use meaningful names for
+        variables and functions - Avoid duplicating code - Prefer simple
+        solutions over complex ones - Let each function perform one clearly
+        defined task - Write short docstrings describing what your code does
 
-   These small habits make your code easier to understand for collaborators and
-   your future self.
+    These small habits make your code easier to understand for collaborators
+    and your future self.
 
 ---
 
@@ -54,91 +59,114 @@ extended (for example with automated formatting).
 The repo is organized into four main folders.
 
 - **`source`**: The `source` folder contains *reusable code* that may be used
-  across multiple experiments. Code in this folder should therefore be written
-  in Python modules (not notebooks) and should include basic documentation and
-  tests. These files live in `source/our_library`. This folder can be installed
-  as a local Python package via `pip install -e .`. This is nice because after
-  installation, functions can be imported in experiments like this `from
-  our_library.some_functions import add_10`. 
+    across multiple experiments. Code in this folder should therefore be
+    written in Python modules (not notebooks) and should include basic
+    documentation and tests. These files live in `source/our_library`. This
+    folder can be installed as a local Python package via `pip install -e .`.
+    This is nice because after installation, functions can be imported in
+    experiments like this `from our_library.some_functions import add_10`. 
 
-  The `source` folder also contains a `tests` directory for automated testing.
-  A useful convention is to mirror the structure of the library and the tests. 
+    The `source` folder also contains a `tests` directory for automated
+    testing. A useful convention is to mirror the structure of the library and
+    the tests. 
 
 - **`experiments`:** The `experiments` folder contains the *actual research
-  experiments*. Each experiment has its own numbered folder, e.g.
-  `experiments/01_first_experiment`. Experiments can be implemented using
-  Jupyter notebooks or Python scripts. Separating reusable code (`source`) from
-  experiment-specific code (`experiments`) helps keep projects organized. A
-  good rule of thumb: If you find yourself copying code between experiments, it
-  should probably be in `source`.
+    experiments*. Each experiment has its own numbered folder, e.g.
+    `experiments/01_first_experiment`. Experiments can be implemented using
+    Jupyter notebooks or Python scripts. Separating reusable code (`source`)
+    from experiment-specific code (`experiments`) helps keep projects
+    organized. A good rule of thumb: If you find yourself copying code between
+    experiments, it should probably be in `source`.
 
 - **`results`:** The `results` folder stores outputs generated by experiments.
-  Its structure mirrors the `experiments` folder. Typical outputs include
-  plots, tables, trained models or intermediate data. As results can be large,
-  we exclude the content of the `results` folder from git tracking by default.
-  However, if your files are small, you can tell git explicitly to track the
-  subfolder via `!results/01_first_experiment/` in the `.gitignore` file. An
-  alternative for large files is to use Git LFS.
+    Its structure mirrors the `experiments` folder. Typical outputs include
+    plots, tables, trained models or intermediate data. As results can be
+    large, we exclude the content of the `results` folder from git tracking by
+    default. However, if your files are small, you can tell git explicitly to
+    track the subfolder via `!results/01_first_experiment/` in the `.gitignore`
+    file. An alternative for large files is to use Git LFS.
 
 - **`documentation`:** The `documentation` folder contains project
-  documentation. Currently it includes a minimal LaTeX paper template in
-  `documentation/paper`. Additional material such as slides or reports can
-  also be placed here. Since everything lives in the same repository, figures
-  from the `results` folder can easily be included in the paper.
+    documentation. Currently it includes a minimal LaTeX paper template in
+    `documentation/paper`. Additional material such as slides or reports can
+    also be placed here. Since everything lives in the same repository, figures
+    from the `results` folder can easily be included in the paper.
+
+    If you prefer writing papers in an online LaTeX editor, platforms such as
+    *Overleaf* can also be connected to GitHub repositories. This allows you to
+    edit the paper collaboratively in Overleaf while keeping the source files
+    synchronized with the repository.
 
 ---
 
 ## 3. How To Use This Template
 
-Some tasks to get you started:
-1. **Fork and Clone:** Fork the template repository on GitHub to create your
-  own copy of the repo (such that you can edit it). Then, use `git clone` to
-  download your fork to your local machine. 
+**Prerequisites:** To use this template, you need a GitHub account and `git`
+installed on your local machine. To clone repositories via SSH, you should also
+set up SSH keys for your GitHub account (cloning via HTTPS is also possible
+though). In addition, you need `conda` installed to create and manage the
+Python environment used in this project. If you want to compile the LaTeX
+paper, you will also need a LaTeX distribution such as *TeX Live* installed on
+your machine.
 
-2. **Setup the Environment:** First create the environment (this assumes that
-  you have `conda` already installed):
-  ```
-  conda env create -f project_template_env.yml
-  conda activate project_template_env
-  ```
-  This will install the required external dependencies listed in
-  `project_template_env.yml`. Next, install the *local* library:
-  ```
-  cd source
-  pip install -e .
-  ```
-  For this to work, we need the `setup.py` file in `source`. Take a look at
-  that file. We also need the `__init__.py` file in `source/our_library`. This
-  is necessary such that the `our_library` folder is recognized as a Python
-  package. The `-e` flag in the `pip` command installs the package in *editable
-  mode*, meaning that changes to the source code immediately become available
-  without reinstalling the package. You can verify the installation with `conda
-  list`. Make sure that you see the local package `our_library` in the list of
-  installed packages.
+If this is the first time that you are using this template, it is recommended
+to work through the following list of steps:
+
+1. **Use Template and Clone:** On the GitHub page of this repository, click on
+    "Use this template" to create a new repository based on this template. Give
+    the new repository a name that makes sense for your project and set it to
+    private if you don't want to share it publicly. You can also add a project
+    description here. After creating the new repository, use `git clone` to
+    download it to your local machine.
+
+2. **Setup the Environment:** First create and activate the environment.
+    > OPTIONAL: If you want, you can already alter the template here to give
+    > the environment a meaningful name.
+    ```
+    conda env create -f project_template_env.yml
+    conda activate project_template_env
+    ```
+    This will install the required external dependencies listed in
+    `project_template_env.yml`. Next, install the *local* library.
+    > OPTIONAL: Again, you can alter the template here and rename the
+    > `our_library` folder. Note, however, that this makes additional changes
+    > necessary (e.g. in the `setup.py` file and import statements).
+    ```
+    cd source
+    pip install -e .
+    ```
+    For this to work, we need the `setup.py` file in `source`. Take a look at
+    that file. We also need the `__init__.py` file in `source/our_library`.
+    This is necessary such that the `our_library` folder is recognized as a
+    Python package. The `-e` flag in the `pip` command installs the package in
+    *editable mode*, meaning that changes to the source code immediately become
+    available without reinstalling the package. You can verify the installation
+    with `conda list`. Make sure that you see the local package `our_library`
+    in the list of installed packages.
 
 3. **Explore the Repository:** Explore the structure of the repository.
 
 4. **Run the Tests:** Take a look at the tests in `source/tests`. Note that
-  they use `@pytest.mark.parametrize`. This is a simple way to run the same
-  test over a range of different inputs. Run `pytest .` from the `source`
-  directory to see the automated tests in action. Feel free to extend the
-  `our_library` and add additional tests. 
+    they use `@pytest.mark.parametrize`. This is a simple way to run the same
+    test over a range of different inputs. Run `pytest .` from the `source`
+    directory to see the automated tests in action. Feel free to extend the
+    `our_library` and add additional tests. 
 
 5. **GitHub Workflow:** Take a look at the GitHub workflow in
-  `.github/workflows`. This workflow is triggered automatically whenever you
-  push changes to GitHub (see the section beginning with `on`). It creates a
-  virtual environment, installs the dependencies and runs the tests. You can
-  make a change to the code, push it to GitHub and then check the results of
-  the workflow in the "Actions" tab of your GitHub repository.
+    `.github/workflows`. This workflow is triggered automatically whenever you
+    push changes to GitHub (see the section beginning with `on`). It creates a
+    virtual environment, installs the dependencies and runs the tests. You can
+    make a small change to the code, push it to GitHub and then check the
+    results of the workflow in the "Actions" tab of your GitHub repository.
 
 6. **Experiments:** Take a look at the experiments in the `experiments` folder.
-   Note how reusable code from `source` is imported and how results are written
-   to the `results` folder. Run the experiments to see this in action.
+    Note how reusable code from `source/our_library` is imported and how
+    results are written to the `results` folder. Run the experiments to see
+    this in action.
 
 7. **LaTeX Paper:** Try compiling the LaTeX paper in `documentation/paper`. The
-   template demonstrates how figures from the `results` folder can be included
-   in the paper.
+    template demonstrates how figures from the `results` folder can be included
+    in the paper.
    
 8. **Adapt and Extend:** Adapt and extend the template as needed for your own
-   research project. For instance, you might want to rename the virtual
-   environment and the `our_library` folder. 
+    research project.
