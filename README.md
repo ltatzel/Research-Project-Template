@@ -12,16 +12,15 @@ research workflows.
 **Credits & License:** This template was created by Lukas Tatzel and is
 available at  
 https://github.com/ltatzel/Research-Project-Template. If you find it useful,
-feel free to reference the original repository. This project is licensed under
-the MIT License; see the `LICENSE` file for details.
+feel free to reference the original repository. The repository is licensed
+under the MIT License; see the `LICENSE` file for details.
 
 ---
 
 ## 1. Good Practices in Software Engineering
 
-This template implements a small set of practices that help keep research code
-organized and reliable. The list is intentionally minimal and can easily be
-extended (for example with automated formatting).
+This template implements a minimal set of practices that help keep research
+code organized and reliable. 
 
 - **Version Control:** Version control allows us to track the history of a
     project. Every change to the codebase is recorded and can be inspected or
@@ -32,16 +31,16 @@ extended (for example with automated formatting).
 - **Testing:** Automated tests help ensure that your code behaves as expected.
     For example, if you know the expected output of a function for certain
     inputs, you can write a test that verifies this behavior automatically.
-    This template uses the *`pytest`* package for running tests.
+    This template uses the `pytest` package for running tests.
 
 - **Continuous Integration:** Whenever code changes are made, it is useful to
     automatically check whether everything still works. This process is called
     *Continuous Integration (CI)*. This template includes a GitHub workflow in
-    `.github/workflows` that automatically creates a fresh environment,
-    installs the project dependencies, and runs the tests using `pytest`. If
-    something fails, the workflow reports the error. CI also ensures that all
-    required dependencies are explicitly listed, which is important for
-    reproducibility.
+    `.github/workflows` that automatically creates a fresh environment on
+    GitHub, installs the project dependencies, and runs the tests using
+    `pytest`. If something fails, the workflow reports the error. CI also
+    ensures that all required dependencies are *explicitly* listed in the
+    `project_template_env.yml` file, which is important for reproducibility.
 
 - **Clean Code:** Writing clean and readable code is always beneficial. Some
     useful principles include:
@@ -50,8 +49,8 @@ extended (for example with automated formatting).
     - Avoid duplicating code.
     - Prefer simple solutions over complex ones.
     - Each code unit should only perform a single, clearly defined task (this
-      is also known as the Single Responsibility Principle).
-    - Write short docstrings describing what your code does.
+      is also known as the *Single Responsibility Principle*).
+    - Write short docstrings describing what your code does and what the inputs and outputs are.
 
     These small habits make your code easier to understand for collaborators
     and your future self.
@@ -102,7 +101,8 @@ The repository is organized into four main folders.
     If you prefer writing papers in an online LaTeX editor, platforms such as
     *Overleaf* can also be connected to GitHub repositories. This allows you to
     edit the paper collaboratively in Overleaf while keeping the source files
-    synchronized with the repository.
+    synchronized with the repository. More information on this can be found
+    [here](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration).
 
 ---
 
@@ -119,12 +119,12 @@ machine.
 If this is the first time you are using this template, it is recommended to
 work through the following steps:
 
-1. **Use Template and Clone:** On the GitHub page of this repository, click on
-    "Use this template" to create a new repository based on this template. Give
-    the new repository a name that makes sense for your project and set it to
-    private if you do not want to share it publicly. You can also add a project
-    description here. After creating the new repository, use `git clone` to
-    download it to your local machine.
+1. **Use the Template and Clone:** On the GitHub page of this repository, click
+    on "Use this template" to create a new repository based on this template.
+    Give the new repository a name that makes sense for your project and set it
+    to private if you do not want to share it publicly. You can also add a
+    project description here. After creating the new repository, use `git
+    clone` to download it to your local machine.
 
 2. **Setup the Environment:** First create and activate the environment.
 
@@ -158,7 +158,10 @@ work through the following steps:
     You can verify the installation with `conda list`. Make sure that the local
     package `our_library` appears in the list of installed packages.
 
-3. **Explore the Repository:** Explore the structure of the repository.
+3. **Explore the Repository:** Explore the structure of the repository. Note
+    that the structure of the `tests` folder mirrors the structure of the
+    `our_library` folder; and `results` mirrors `experiments`. This is a useful
+    convention that helps keep things organized.
 
 4. **Run the Tests:** Take a look at the tests in `source/tests`. Note that
     they use `@pytest.mark.parametrize`, which is a convenient way to run the
@@ -166,21 +169,21 @@ work through the following steps:
     to see the automated tests in action. Feel free to extend `our_library` and
     add additional tests.
 
-5. **GitHub Workflow:** Take a look at the GitHub workflow in
+5. **Trigger the GitHub Workflow:** Take a look at the GitHub workflow in
     `.github/workflows`. This workflow is triggered automatically whenever you
     push changes to GitHub (see the section beginning with `on`). It creates a
     fresh environment, installs the dependencies, and runs the tests. You can
     make a small change to the code, push it to GitHub, and then check the
     results in the "Actions" tab of your GitHub repository.
 
-6. **Experiments:** Take a look at the experiments in the `experiments` folder.
-    Note how reusable code from `source/our_library` is imported and how
-    results are written to the `results` folder. Run the experiments to see
+6. **Run the Experiments:** Take a look at the experiments in the `experiments`
+    folder. Note how reusable code from `source/our_library` is imported and
+    how results are written to the `results` folder. Run the experiments to see
     this in action.
 
 7. **Compile the LaTeX Paper:** Try compiling the LaTeX paper in
     `documentation/paper`. The template demonstrates how figures from the
     `results` folder can be included in the paper.
 
-8. **Adapt and Extend:** Adapt and extend the template as needed for your own
-    research project.
+8. **Adapt and Extend the Template:** Adapt and extend the template as needed
+    for your own research project.
