@@ -94,6 +94,7 @@ Some tasks to get you started:
 1. **Fork and Clone:** Fork the template repository on GitHub to create your
   own copy of the repo (such that you can edit it). Then, use `git clone` to
   download your fork to your local machine. 
+
 2. **Setup the Environment:** First create the environment (this assumes that
   you have `conda` already installed):
   ```
@@ -114,24 +115,30 @@ Some tasks to get you started:
   without reinstalling the package. You can verify the installation with `conda
   list`. Make sure that you see the local package `our_library` in the list of
   installed packages.
+
 3. **Explore the Repository:** Explore the structure of the repository.
+
 4. **Run the Tests:** Take a look at the tests in `source/tests`. Note that
   they use `@pytest.mark.parametrize`. This is a simple way to run the same
   test over a range of different inputs. Run `pytest .` from the `source`
   directory to see the automated tests in action. Feel free to extend the
   `our_library` and add additional tests. 
+
 5. **GitHub Workflow:** Take a look at the GitHub workflow in
   `.github/workflows`. This workflow is triggered automatically whenever you
   push changes to GitHub (see the section beginning with `on`). It creates a
   virtual environment, installs the dependencies and runs the tests. You can
   make a change to the code, push it to GitHub and then check the results of
   the workflow in the "Actions" tab of your GitHub repository.
+
 6. **Experiments:** Take a look at the experiments in the `experiments` folder.
    Note how reusable code from `source` is imported and how results are written
    to the `results` folder. Run the experiments to see this in action.
+
 7. **LaTeX Paper:** Try compiling the LaTeX paper in `documentation/paper`. The
    template demonstrates how figures from the `results` folder can be included
    in the paper.
+   
 8. **Adapt and Extend:** Adapt and extend the template as needed for your own
    research project. For instance, you might want to rename the virtual
    environment and the `our_library` folder. 
