@@ -1,3 +1,9 @@
+# Ignore everything in results by default
+results/*
+
+# But track these subfolders
+!results/01_first_experiment/
+
 # VS Code
 .vscode/
 
