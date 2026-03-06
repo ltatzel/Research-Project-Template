@@ -12,8 +12,8 @@ research workflows.
 **Credits & License:** This template was created by Lukas Tatzel and is
 available at  
 https://github.com/ltatzel/Research-Project-Template. If you find it useful,
-feel free to reference the original repository. The repository is licensed
-under the MIT License; see the `LICENSE` file for details.
+feel free to reference the original repository. In case you have any questions
+or suggestions for improvement, please open an issue on GitHub.
 
 ---
 
@@ -132,7 +132,9 @@ work through the following steps:
 2. **Setup the Environment:** First create and activate the environment.
 
     > OPTIONAL: If you want, you can already modify the template here to give
-    > the environment a meaningful name.
+    > the environment a meaningful name. For this, change the name of the
+    > `.yml` file, the `name` field in that file and the GitHub workflow in
+    > `.github/workflows` accordingly.
 
     ```
     conda env create -f project_template_env.yml
