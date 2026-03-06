@@ -7,14 +7,15 @@ RESULTS_DIR = os.path.join(ROOT_DIR, "results")
 
 
 def get_results_subdir(subdir_name):
-    """Get the path to a subfolder in the results directory."""
+    """Get the path to a subfolder named `subdir_name` in the `results`
+    directory."""
     path = os.path.join(RESULTS_DIR, subdir_name)
     os.makedirs(path, exist_ok=True)
     return path
 
 
 def _add_json_extension(filepath):
-    """Ensure filepath ends with .json, otherwise add it."""
+    """Ensure `filepath` ends with .json, otherwise add it."""
     filepath = str(filepath)
     if not filepath.lower().endswith(".json"):
         filepath += ".json"

@@ -50,7 +50,10 @@ code organized and reliable.
     - Prefer simple solutions over complex ones.
     - Each code unit should only perform a single, clearly defined task (this
       is also known as the *Single Responsibility Principle*).
-    - Write short docstrings describing what your code does and what the inputs and outputs are.
+    - Write docstrings describing what your code does and what the inputs and
+      outputs are. There are different conventions for docstrings that you can
+      use, e.g. *Google* or *NumPy* style. But even a simple one-line
+      description is better than no docstring at all.
 
     These small habits make your code easier to understand for collaborators
     and your future self.
