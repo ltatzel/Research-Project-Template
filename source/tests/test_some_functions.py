@@ -12,9 +12,10 @@ def test_add_10():
 SEEDS = [0, 1, 2, 123, 456]
 
 
-@pytest.mark.parametrize("seed", SEEDS, ids=[f"{s}" for s in SEEDS])
+@pytest.mark.parametrize("seed", SEEDS, ids=[f"seed = {s}" for s in SEEDS])
 def test_add_10_against_numpy(seed):
-    """Test our function against numpy."""
+    """Test our function against numpy. We use a seed `seed` to make the test
+    deterministic."""
 
     # Sample two random vectors, add them
     np.random.seed(seed)
