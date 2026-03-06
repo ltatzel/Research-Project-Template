@@ -1,19 +1,20 @@
 # Research Project Template
 
-This repository provides a *minimal template for research projects in Python*.
+This repository provides a *minimal* template for research projects in Python.
+It includes a basic structure for organizing code, results, and documentation,
+as well as good practices for software engineering such as version control,
+testing, and continuous integration. The template is designed to be lightweight
+such that it can be easily adapted to different research workflows.
 
-Research projects often grow organically: Experiments accumulate, code gets
-copied across notebooks, and results become difficult to trace. A small amount
-of structure helps prevent this and makes it easier to understand, reproduce,
-and maintain your code, or share it with collaborators. The template is
-intentionally lightweight so that it can easily be adapted to different
-research workflows.
+**Motivation:** Research projects often grow organically: Experiments
+accumulate, code gets copied across notebooks, and results become difficult to
+trace. A small amount of structure helps prevent this and makes it easier to
+understand, reproduce, and maintain your code, or share it with collaborators.
 
 **Credits & License:** This template was created by Lukas Tatzel and is
-available at  
-https://github.com/ltatzel/Research-Project-Template. If you find it useful,
-feel free to reference the original repository. In case you have any questions
-or suggestions for improvement, please open an issue on GitHub.
+available at https://github.com/ltatzel/Research-Project-Template. If you find
+it useful, feel free to reference the original repository. In case you have any
+questions or suggestions for improvement, please open an issue on GitHub.
 
 ---
 
