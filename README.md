@@ -2,9 +2,9 @@
 
 This repository provides a *minimal* template for research projects in Python.
 It includes a basic structure for organizing code, results, and documentation,
-as well as good practices for software engineering such as version control,
-testing, and continuous integration. The template is designed to be lightweight
-such that it can be easily adapted to different research workflows.
+and demonstrates how to incorporate good practices in software engineering such
+as testing and continuous integration. The template is designed to be
+lightweight such that it can be easily adapted to your specific needs.
 
 **Motivation:** Research projects often grow organically: Experiments
 accumulate, code gets copied across notebooks, and results become difficult to
@@ -23,16 +23,19 @@ questions or suggestions for improvement, please open an issue on GitHub.
 This template implements a minimal set of practices that help keep research
 code organized and reliable. 
 
-- **Version Control:** Version control allows us to track the history of a
+- **Version Control:** Version control allows you to track the history of a
     project. Every change to the codebase is recorded and can be inspected or
-    reverted later. This template uses *git* for version control. It allows you
-    to track the evolution of your code, revert to earlier versions, and
-    collaborate with others.
-
+    reverted later. It also facilitates collaboration, as multiple people can
+    work on in different branches and merge their changes together. This
+    repository is a GitHub template, which means that when you create a new
+    repository based on this template, it will already be set up with *git* for
+    version control.
+    
 - **Testing:** Automated tests help ensure that your code behaves as expected.
     For example, if you know the expected output of a function for certain
     inputs, you can write a test that verifies this behavior automatically.
-    This template uses the `pytest` package for running tests.
+    This template uses the [`pytest`
+    package](https://docs.pytest.org/en/stable/) for running tests.
 
 - **Continuous Integration:** Whenever code changes are made, it is useful to
     automatically check whether everything still works. This process is called
@@ -43,17 +46,19 @@ code organized and reliable.
     ensures that all required dependencies are *explicitly* listed in the
     `project_template_env.yml` file, which is important for reproducibility.
 
-- **Clean Code:** Writing clean and readable code is always beneficial. Some
+- **Clean Code:** Writing clean and readable code is always advisable. Some
     useful principles include:
 
     - Use meaningful names for variables, functions, etc.
-    - Avoid duplicating code.
+    - Avoid duplicating code. If you find yourself copying and pasting code,
+      the alarm bells should be ringing in your head. It will often make sense
+      to extract the common code into a reusable function or module. 
     - Prefer simple solutions over complex ones.
     - Each code unit should only perform a single, clearly defined task (this
       is also known as the *Single Responsibility Principle*).
     - Write docstrings describing what your code does and what the inputs and
       outputs are. There are different conventions for docstrings that you can
-      use, e.g. *Google* or *NumPy* style. But even a simple one-line
+      adopt, e.g. *Google* or *NumPy* style. But even a simple one-line
       description is better than no docstring at all.
 
     These small habits make your code easier to understand for collaborators
@@ -66,35 +71,40 @@ code organized and reliable.
 The repository is organized into four main folders.
 
 - **`source`**: The `source` folder contains *reusable code* that may be used
-    across multiple experiments. Code in this folder should therefore be
-    written in Python modules (not notebooks) and should include basic
-    documentation and tests. These files live in `source/our_library`. This
-    folder can be installed as a local Python package via `pip install -e .`.
-    After installation, functions can be imported in experiments like this:
-    `from our_library.some_functions import add_10`.
+    across *multiple* experiments. Since we want to be able to import this
+    code, it should be organized in Python files (not Jupyter notebooks). Also,
+    since this code is meant to be reused, it should include basic
+    documentation and tests. All files live in `source/our_library`. This
+    folder can be installed as a local Python package via `pip install -e .`
+    (details in section 3). After installation, functions can be imported in
+    experiments like this: `from our_library.some_functions import add_10`.
 
     The `source` folder also contains a `tests` directory for automated
     testing. A useful convention is to mirror the structure of the library and
-    the tests.
+    the tests. For instance, if you have a file
+    `source/our_library/some_functions.py`, you should implement the
+    corresponding tests in `source/tests/test_some_functions.py`.
 
 - **`experiments`:** The `experiments` folder contains the *actual research
     experiments*. Each experiment has its own numbered folder, e.g.
     `experiments/01_first_experiment`. Experiments can be implemented using
     Jupyter notebooks or Python scripts. Separating reusable code (`source`)
     from experiment-specific code (`experiments`) helps keep projects
-    organized.
-
-    A good rule of thumb: If you find yourself copying code between
+    organized. A good rule of thumb: If you find yourself copying code between
     experiments, it should probably be moved to `source`.
 
-- **`results`:** The `results` folder stores outputs generated by experiments.
-    Its structure mirrors the `experiments` folder. Typical outputs include
-    plots, tables, trained models, or intermediate data. Because result files
-    can be large, the contents of the `results` folder are excluded from git
-    tracking by default. However, if your files are small, you can explicitly
-    track a subfolder by adding an exception such as
-    `!results/01_first_experiment/` to the `.gitignore` file. An alternative
-    for large files is to use Git LFS.
+- **`results`:** The `results` folder stores outputs generated by our
+    experiments. Its structure mirrors the `experiments` folder. So, if you
+    have an experiment in `experiments/01_first_experiment`, the corresponding
+    results should be stored in `results/01_first_experiment`. This makes it
+    easy to keep track of which results belong to which experiment.
+        
+    Typical outputs include plots, tables, trained models, or intermediate
+    data. Because result files can be large, the contents of the `results`
+    folder are excluded from git tracking by default. However, if your files
+    are small, you can explicitly track a subfolder by adding an exception such
+    as `!results/01_first_experiment/` to the `.gitignore` file. An alternative
+    for large files is to use [Git LFS](https://git-lfs.com/).
 
 - **`documentation`:** The `documentation` folder contains project
     documentation. Currently it includes a minimal LaTeX paper template in
@@ -117,8 +127,8 @@ installed on your local machine. To clone repositories via SSH, you should also
 set up SSH keys for your GitHub account (cloning via HTTPS is also possible).
 In addition, you need `conda` installed to create and manage the Python
 environment used in this project. If you want to compile the LaTeX paper, you
-will also need a LaTeX distribution such as *TeX Live* installed on your
-machine.
+will also need a LaTeX distribution such as [*TeX
+Live*](https://www.tug.org/texlive/) installed on your machine.
 
 If this is the first time you are using this template, it is recommended to
 work through the following steps:
@@ -169,23 +179,26 @@ work through the following steps:
     `our_library` folder; and `results` mirrors `experiments`. This is a useful
     convention that helps keep things organized.
 
-4. **Run the Tests:** Take a look at the tests in `source/tests`. Note that
-    they use `@pytest.mark.parametrize`, which is a convenient way to run the
-    same test with multiple inputs. Run `pytest .` from the `source` directory
-    to see the automated tests in action. Feel free to extend `our_library` and
-    add additional tests.
+4. **Run the Tests:** Take a look at `source/our_library/some_functions.py` and
+    the corresponding tests in `source/tests/test_some_functions.py`. Note that
+    the tests use `@pytest.mark.parametrize`, which is a convenient way to run
+    the same test with multiple inputs. Run `pytest .` from the `source`
+    directory to see the automated tests in action. Feel free to extend
+    `our_library` and add additional tests.
 
-5. **Trigger the GitHub Workflow:** Take a look at the GitHub workflow in
-    `.github/workflows`. This workflow is triggered automatically whenever you
-    push changes to GitHub (see the section beginning with `on`). It creates a
-    fresh environment, installs the dependencies, and runs the tests. You can
-    make a small change to the code, push it to GitHub, and then check the
-    results in the "Actions" tab of your GitHub repository.
+5. **Trigger the GitHub Workflow:** Take a look at the GitHub workflow
+    `run_pytest.yml` in `.github/workflows`. This workflow is triggered
+    automatically whenever you push changes to GitHub (see the section
+    beginning with `on`). It creates a fresh environment, installs the
+    dependencies, and runs the tests. You can make a small change to the code
+    (e.g. by adding another test case to `test_some_functions.py`), push it to
+    GitHub, and then check the results in the *Actions* tab of your GitHub
+    repository.
 
 6. **Run the Experiments:** Take a look at the experiments in the `experiments`
     folder. Note how reusable code from `source/our_library` is imported and
-    how results are written to the `results` folder. Run the experiments to see
-    this in action.
+    how results are written to the `results` folder. Run the first experiment
+    to see this in action.
 
 7. **Compile the LaTeX Paper:** Try compiling the LaTeX paper in
     `documentation/paper`. The template demonstrates how figures from the
