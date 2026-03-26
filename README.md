@@ -57,9 +57,16 @@ code organized and reliable.
     - Each code unit should only perform a single, clearly defined task (this
       is also known as the *Single Responsibility Principle*).
     - Write docstrings describing what your code does and what the inputs and
-      outputs are. There are different conventions for docstrings that you can
+      outputs are. Here's an example of a simple one-line docstring:
+      ```python
+      def add_10(input_number):
+          """Add 10 to the given number `input_number`."""
+          return input_number + 10
+      ```     
+      There are different conventions for docstrings that you can
       adopt, e.g. *Google* or *NumPy* style. But even a simple one-line
-      description is better than no docstring at all.
+      description is better than no docstring at all. Here's an example
+      
 
     These small habits make your code easier to understand for collaborators
     and your future self.
