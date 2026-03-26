@@ -3,8 +3,9 @@
 This repository provides a *minimal* template for research projects in Python.
 It includes a basic structure for organizing code, results, and documentation,
 and demonstrates how to incorporate good practices in software engineering such
-as testing and continuous integration. The template is designed to be
-lightweight such that it can be easily adapted to your specific needs.
+as testing, continuous integration, and automated linting and formatting. The
+template is designed to be lightweight such that it can be easily adapted to
+your specific needs.
 
 **Motivation:** Research projects often grow organically: Experiments
 accumulate, code gets copied across notebooks, and results become difficult to
@@ -28,14 +29,13 @@ code organized and reliable.
     reverted later. It also facilitates collaboration, as multiple people can
     work on in different branches and merge their changes together. This
     repository is a GitHub template, which means that when you create a new
-    repository based on this template, it will already be set up with *git* for
+    repository based on this template, it will already be set up with git for
     version control.
 
 - **Testing:** Automated tests help ensure that your code behaves as expected.
     For example, if you know the expected output of a function for certain
-    inputs, you can write a test that verifies this behavior automatically.
-    This template uses the [`pytest`
-    package](https://docs.pytest.org/en/stable/) for running tests.
+    inputs, you can write a test that verifies this behavior automatically. This
+    template uses the pytest package for running tests.
 
 - **Continuous Integration:** Whenever code changes are made, it is useful to
     automatically check whether everything still works. This process is called
@@ -63,16 +63,16 @@ code organized and reliable.
     - Prefer simple solutions over complex ones.
     - Each code unit should only perform a single, clearly defined task (this
       is also known as the *Single Responsibility Principle*).
-    - Write docstrings describing what your code does and what the inputs and
-      outputs are. Here's an example of a simple one-line docstring:
+    - Write docstrings describing what your code does. Here's an example with a
+      simple one-line docstring:
       ```python
       def add_10(input_number):
           """Add 10 to the given number `input_number`."""
           return input_number + 10
       ```     
-      There are different conventions for docstrings that you can
-      adopt, e.g. *Google* or *NumPy* style. But even a simple one-line
-      description is better than no docstring at all. Here's an example
+      There are different conventions for docstrings that you can adopt, e.g.
+      the *Google* or *NumPy* style. But even a short description as in the
+      example above is better than no docstring at all.
       
 
     These small habits make your code easier to understand for collaborators
@@ -85,13 +85,13 @@ code organized and reliable.
 The repository is organized into four main folders.
 
 - **`source`**: The `source` folder contains *reusable code* that may be used
-    across *multiple* experiments. Since we want to be able to import this
-    code, it should be organized in Python files (not Jupyter notebooks). Also,
-    since this code is meant to be reused, it should include basic
-    documentation and tests. All files live in `source/our_library`. This
-    folder can be installed as a local Python package via `pip install -e .`
-    (details in section 3). After installation, functions can be imported in
-    experiments like this: `from our_library.some_functions import add_10`.
+    across *multiple* experiments. Since we want to be able to import this code,
+    it should be organized in Python files (not Jupyter notebooks). Also, since
+    this code is meant to be reused, it should include basic documentation and
+    tests. All files live in `source/our_library`. This folder can be installed
+    as a local Python package via `pip install -e .` (details in section 3).
+    After installation, functions can be imported in experiments very
+    conveniently: `from our_library.some_functions import add_10`.
 
     The `source` folder also contains a `tests` directory for automated
     testing. A useful convention is to mirror the structure of the library and
@@ -136,11 +136,11 @@ The repository is organized into four main folders.
 
 ## 3. How To Use This Template
 
-**Prerequisites:** To use this template, you need a GitHub account and `git`
+**Prerequisites:** To use this template, you need a GitHub account and git
 installed on your local machine. In addition, you need `conda` installed to
 create and manage the Python environment used in this project. If you want to
-compile the LaTeX paper, you will also need a LaTeX distribution such as [*TeX
-Live*](https://www.tug.org/texlive/) installed on your machine.
+compile the LaTeX paper, you will also need a LaTeX distribution such as [TeX
+Live](https://www.tug.org/texlive/) installed on your machine.
 
 If this is the first time you are using this template, it is recommended to
 work through all of the following steps:
@@ -221,7 +221,8 @@ work through all of the following steps:
     the `.pre-commit-config.yaml` file. After this, every time you create a
     commit (e.g. via the terminal or an editor like VS Code), the code will be
     automatically checked and formatted using Ruff. If issues are found, the
-    commit will be blocked until they are resolved.
+    commit will be blocked until they are resolved. You can also run the
+    pre-commit checks manually via `pre-commit run --all-files`.
 
 7. **Run the Experiments:** Take a look at the experiments in the `experiments`
     folder. Note how reusable code from `source/our_library` is imported and how
