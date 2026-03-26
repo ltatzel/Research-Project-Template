@@ -51,7 +51,7 @@ code organized and reliable.
     variables). A formatter automatically rewrites your code to follow
     consistent style rules (e.g. a specific maximum line length). This template
     uses [Ruff](https://docs.astral.sh/ruff/) which is a fast Python linter and
-    formatter.
+    formatter that supports both Python files and Jupyter notebooks. 
 
 - **Clean Code:** Writing clean and readable code is always advisable. Some
     useful principles include:
