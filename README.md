@@ -30,7 +30,7 @@ code organized and reliable.
     repository is a GitHub template, which means that when you create a new
     repository based on this template, it will already be set up with *git* for
     version control.
-    
+
 - **Testing:** Automated tests help ensure that your code behaves as expected.
     For example, if you know the expected output of a function for certain
     inputs, you can write a test that verifies this behavior automatically.
@@ -45,6 +45,13 @@ code organized and reliable.
     `pytest`. If something fails, the workflow reports the error. CI also
     ensures that all required dependencies are *explicitly* listed in the
     `project_template_env.yml` file, which is important for reproducibility.
+
+- **Code Linting and Formatting:** Linting checks your code for errors, bad
+    practices, and style violations (e.g. unused imports or undefined
+    variables). A formatter automatically rewrites your code to follow
+    consistent style rules (e.g. a specific maximum line length). This template
+    uses [Ruff](https://docs.astral.sh/ruff/) which is a fast Python linter and
+    formatter.
 
 - **Clean Code:** Writing clean and readable code is always advisable. Some
     useful principles include:
@@ -130,15 +137,13 @@ The repository is organized into four main folders.
 ## 3. How To Use This Template
 
 **Prerequisites:** To use this template, you need a GitHub account and `git`
-installed on your local machine. To clone repositories via SSH, you should also
-set up SSH keys for your GitHub account (cloning via HTTPS is also possible).
-In addition, you need `conda` installed to create and manage the Python
-environment used in this project. If you want to compile the LaTeX paper, you
-will also need a LaTeX distribution such as [*TeX
+installed on your local machine. In addition, you need `conda` installed to
+create and manage the Python environment used in this project. If you want to
+compile the LaTeX paper, you will also need a LaTeX distribution such as [*TeX
 Live*](https://www.tug.org/texlive/) installed on your machine.
 
 If this is the first time you are using this template, it is recommended to
-work through the following steps:
+work through all of the following steps:
 
 1. **Use the Template and Clone:** On the GitHub page of this repository, click
     on "Use this template" to create a new repository based on this template.
@@ -186,30 +191,49 @@ work through the following steps:
     `our_library` folder; and `results` mirrors `experiments`. This is a useful
     convention that helps keep things organized.
 
-4. **Run the Tests:** Take a look at `source/our_library/some_functions.py` and
-    the corresponding tests in `source/tests/test_some_functions.py`. Note that
-    the tests use `@pytest.mark.parametrize`, which is a convenient way to run
-    the same test with multiple inputs. Run `pytest .` from the `source`
-    directory to see the automated tests in action. Feel free to extend
-    `our_library` and add additional tests.
+4. **Run the Tests and Ruff:** Take a look at
+    `source/our_library/some_functions.py` and the corresponding tests in
+    `source/tests/test_some_functions.py`. Note that the tests use
+    `@pytest.mark.parametrize`, which is a convenient way to run the same test
+    with multiple inputs. Run `pytest .` from the `source` directory to see the
+    automated tests in action. Feel free to extend `our_library` and add
+    additional tests.s 
+
+    In addition, you can manually run the linter and formatter via
+    ```
+    ruff check .
+    ruff format .
+    ```
 
 5. **Trigger the GitHub Workflow:** Take a look at the GitHub workflow
     `run_pytest.yml` in `.github/workflows`. This workflow is triggered
-    automatically whenever you push changes to GitHub (see the section
-    beginning with `on`). It creates a fresh environment, installs the
-    dependencies, and runs the tests. You can make a small change to the code
-    (e.g. by adding another test case to `test_some_functions.py`), push it to
-    GitHub, and then check the results in the *Actions* tab of your GitHub
-    repository.
+    automatically whenever you push changes to GitHub (see the section beginning
+    with `on`). It creates a fresh environment, installs the dependencies,
+    checks the code using Ruff, and runs the tests using `pytest`. You can make
+    a small change to the code (e.g. by adding another test case to
+    `test_some_functions.py`) and push it to GitHub. Then, open your browser, go
+    to your repository and click on the *Actions* tab to inspect the workflow.
 
-6. **Run the Experiments:** Take a look at the experiments in the `experiments`
-    folder. Note how reusable code from `source/our_library` is imported and
-    how results are written to the `results` folder. Run the first experiment
-    to see this in action.
+6. **Enable Automatic Checks Before Commits:** You can run formatting and
+    linting automatically before each commit using the `pre-commit` package.
+    This helps catch issues early and keeps the codebase clean without any extra
+    effort. Run `pre-commit install`, which uses the configuration specified in
+    the `.pre-commit-config.yaml` file. After this, every time you create a
+    commit (e.g. via the terminal or an editor like VS Code), the code will be
+    automatically checked and formatted using Ruff. If issues are found, the
+    commit will be blocked until they are resolved.
 
-7. **Compile the LaTeX Paper:** Try compiling the LaTeX paper in
+7. **Run the Experiments:** Take a look at the experiments in the `experiments`
+    folder. Note how reusable code from `source/our_library` is imported and how
+    results are written to the `results` folder. Run the first experiment to see
+    this in action. Feel free to add an additional experiment. For this, you
+    could add code to `source/our_library`, write a corresponding test, import
+    the new function in your experiment and finally generate and save some
+    results.
+
+8. **Compile the LaTeX Paper:** Try compiling the LaTeX paper in
     `documentation/paper`. The template demonstrates how figures from the
     `results` folder can be included in the paper.
 
-8. **Adapt and Extend the Template:** Adapt and extend the template as needed
+9. **Adapt and Extend the Template:** Adapt and extend the template as needed
     for your own research project.
