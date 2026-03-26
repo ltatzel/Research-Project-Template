@@ -1,0 +1,8 @@
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+# E: pycodestyle errors (some style issues)
+# F: logical errors (from Pyflakes)
+# I: import sorting

@@ -1,6 +1,6 @@
-from our_library.some_functions import add_10
-import pytest
 import numpy as np
+import pytest
+from our_library.some_functions import add_10
 
 
 def test_add_10():

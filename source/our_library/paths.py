@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 HEREDIR = os.path.dirname(os.path.abspath(__file__))  # path to this file
 ROOT_DIR = os.path.dirname(os.path.dirname(HEREDIR))  # two levels up
