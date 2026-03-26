@@ -17,5 +17,6 @@ dependencies:
   - jupyter
   - ipykernel
   - scipy
-  - pytest  # for testing
-  - ruff  # for formatting, sorting imports, etc.
+  - pytest      # for testing
+  - ruff        # for formatting, sorting imports, etc.
+  - pre-commit  # for running pre-commit checks
