@@ -22,6 +22,7 @@ jobs:
           environment-file: project_template_env.yml
           auto-activate-base: false
           use-mamba: true
+          channel-priority: strict
 
       # ------------------------------
       # Install own library
