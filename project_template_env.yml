@@ -18,4 +18,5 @@ dependencies:
   - jupyter
   - ipykernel
   - scipy
-  - pytest
+  - pytest  # for testing
+  - ruff  # for formatting, sorting imports, etc.
