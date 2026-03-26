@@ -33,6 +33,17 @@ jobs:
           pip install -e .
 
       # ------------------------------
+      # Run ruff
+      # ------------------------------
+      - name: Run Ruff (lint)
+        shell: bash -l {0}
+        run: ruff check .
+
+      - name: Check formatting
+        shell: bash -l {0}
+        run: ruff format . --check
+
+      # ------------------------------
       # Run tests
       # ------------------------------
       - name: Run pytest
